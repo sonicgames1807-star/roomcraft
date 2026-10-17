@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>FitMirror / Проверка телефона</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%237a2348'/%3E%3Cpath d='M10 23V9h12M10 15h9' fill='none' stroke='white' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f9f8f7;--surface:#fff;--ink:#292526;--muted:#70686b;--line:#e4dfe1;--accent:#7a2348;--soft:#f4e9ee;--good:#236342;--warn:#795212;--warnbg:#f9f0dd;--bad:#a22b37;--radius:12px;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;font-size:16px;line-height:1.55}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:wait}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #bc7932;outline-offset:4px}[hidden]{display:none!important}h1,h2,h3,p{margin:0}h1,h2{text-wrap:balance}p{text-wrap:pretty}button svg{width:19px;height:19px;flex:none}.header{max-width:1152px;margin:auto;padding:26px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;border-bottom:1px solid var(--line)}.brand{font-size:23px;font-weight:600;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.mark{background:var(--accent);color:white;width:34px;height:34px;display:grid;place-items:center;border-radius:9px;font-size:22px;font-weight:400}.header-note{font-size:14px;color:var(--muted)}main{max-width:1152px;margin:auto;padding:44px 32px 40px}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:start}.kicker{font-size:14px;letter-spacing:1.4px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}h1{font-size:clamp(34px,4vw,50px);font-weight:450;line-height:1.06;letter-spacing:-2px;max-width:none}h1 span{color:var(--accent)}.lead{color:var(--muted);margin-top:22px;max-width:45ch;line-height:1.7}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chip{font-size:14px;padding:7px 11px;border:1px solid var(--line);border-radius:999px}.notice{background:var(--warnbg);color:var(--warn);border-radius:var(--radius);padding:16px 18px;margin-top:28px;font-size:14px;line-height:1.65}.notice strong{display:block;margin-bottom:4px}label{display:block;font-size:14px;font-weight:500}select,input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);padding:10px;margin-top:7px}input[type=file]{font-size:14px;padding:12px}input::file-selector-button{padding:7px 10px;margin-right:10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);cursor:pointer}.controls{margin-top:25px;display:grid;gap:16px}.btn{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:48px;padding:12px 20px;border-radius:999px;border:1px solid var(--line);color:var(--ink);background:transparent;text-decoration:none;transition:transform 180ms ease,background 180ms ease}.btn:hover:not(:disabled){transform:translateY(-1px);background:var(--soft)}.btn.primary{background:var(--accent);border-color:transparent;color:white}.btn.primary:hover:not(:disabled){background:#5d1735}.btn.full{width:100%}.privacy{display:flex;gap:8px;color:var(--muted);font-size:14px;align-items:start}.privacy svg{width:17px;height:17px;flex:none;margin-top:2px}.panel{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:19px 22px;border-bottom:1px solid var(--line)}h2{font-size:19px;font-weight:550;letter-spacing:-.4px}.status{font-size:14px;color:var(--muted);text-align:right}.check{padding:18px 22px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px}.check:last-child{border-bottom:0}.check-icon{width:30px;height:30px;background:var(--bg);border-radius:8px;display:grid;place-items:center;color:var(--muted);font-size:14px}.check h3{font-size:15px;font-weight:550}.check p{font-size:14px;line-height:1.6;color:var(--muted);margin-top:3px;overflow-wrap:anywhere}.check.pass .check-icon{background:#e9f2ec;color:var(--good)}.check.fail .check-icon{background:#f7e8ea;color:var(--bad)}.check.warn .check-icon{background:var(--warnbg);color:var(--warn)}.check.running .check-icon{animation:pulse 900ms ease-in-out infinite}.value{font-size:14px;margin-top:7px;color:var(--muted);overflow-wrap:anywhere}.actions{display:flex;gap:10px;flex-wrap:wrap;padding:18px 22px;background:var(--bg)}.actions .btn{font-size:14px;flex:1;white-space:nowrap}.note{padding:16px 22px;border-top:1px solid var(--line);font-size:14px;color:var(--muted);line-height:1.6}.below{margin-top:36px;border-top:1px solid var(--line);padding-top:25px;display:grid;grid-template-columns:1fr 1fr;gap:36px}.below h2{font-size:17px;margin-bottom:10px}.below p,.below li{font-size:14px;color:var(--muted);line-height:1.7}.below ol{padding-left:19px;margin:0}.below li+li{margin-top:8px}.below details{margin-top:12px}.below summary{cursor:pointer;min-height:44px;font-size:14px;display:list-item}.below code{font-size:14px;overflow-wrap:anywhere}.photo-box{margin-top:16px;border:1px solid var(--line);padding:15px;border-radius:10px}.photo-box h3{font-size:15px;font-weight:500}.photo-help{font-size:14px;color:var(--muted);margin-top:6px}.photo-preview{margin-top:12px;display:flex;align-items:center;gap:12px}.photo-preview img{width:60px;height:72px;object-fit:contain;background:var(--bg);border-radius:6px}.photo-preview p{font-size:14px;color:var(--muted)}.photo-preview .btn{padding:8px 12px;min-height:44px;font-size:14px;margin-left:auto}.report{background:var(--bg);border:1px solid var(--line);padding:16px;border-radius:8px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.6;max-height:350px;overflow:auto}.live{margin-top:12px;font-size:14px;color:var(--muted);min-height:22px}.foot{max-width:1152px;padding:20px 32px 32px;margin:auto;display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}a{color:var(--accent)}@keyframes pulse{50%{opacity:.35}}
+@media(prefers-color-scheme:dark){:root{--bg:#191719;--surface:#232023;--ink:#f4eff1;--muted:#b7aeb4;--line:#443b42;--accent:#efabc8;--soft:#3b2933;--warn:#e7c282;--warnbg:#362d20;--good:#9dd6b2;--bad:#f2a3af}.mark,.btn.primary{background:#853254;color:white}.btn.primary:hover:not(:disabled){background:#9e4069}.check.pass .check-icon{background:#233b2c}.check.fail .check-icon{background:#40272e}.notice{color:#e7c282}}
+@media(max-width:800px){.header{padding:20px 20px}.header-note{font-size:14px;max-width:140px;text-align:right}main{padding:30px 20px}.layout{grid-template-columns:1fr;gap:28px}h1{font-size:40px;letter-spacing:-1.5px;max-width:17ch}.lead{font-size:15px;margin-top:17px}.notice{margin-top:22px}.below{grid-template-columns:1fr;gap:24px;margin-top:28px}.foot{padding:20px;flex-direction:column}.panel-head,.check{padding:17px 18px}.controls{gap:14px}.chips{margin-top:20px}.actions{padding:16px 18px}.photo-preview{flex-wrap:wrap}.photo-preview .btn{margin-left:0}.kicker{font-size:14px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="header"><div class="brand"><span class="mark" aria-hidden="true">f</span>fitmirror</div><span class="header-note">Локальная примерка / техническая проверка</span></header>
+<main>
+<div class="layout">
+<section>
+<p class="kicker">Шаг 01 / совместимость</p>
+<h1>Сначала проверим<br><span>твой телефон.</span></h1>
+<p class="lead">Без загрузки тяжёлой модели. Проверим, какие вычисления доступны в этом браузере, прежде чем браться за локальную примерку.</p>
+<div class="chips"><span class="chip">Samsung Galaxy A56</span><span class="chip">iPhone 14</span><span class="chip">Без облачной обработки</span></div>
+<div class="notice"><strong>Это диагностика, ещё не примерочная.</strong>Модель одежды не подключена. Успешные тесты браузера не гарантируют запуск нейросетевой примерки.</div>
+<div class="controls">
+<label for="device">На каком телефоне открыта страница?<select id="device"><option value="unknown">Выбери устройство</option><option value="Samsung Galaxy A56">Samsung Galaxy A56</option><option value="iPhone 14">iPhone 14</option><option value="Другое устройство">Другое устройство / компьютер</option></select></label>
+<button class="btn primary full" id="run"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m9 5 10 7-10 7V5Z"/></svg>Проверить телефон</button>
+<p class="privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></svg>Тесты выполняются на устройстве. Нет аналитики, внешних библиотек и отправки фотографий.</p>
+</div>
+<div class="photo-box"><h3>Необязательно: проверить чтение фото</h3><p class="photo-help">Изображение останется в памяти этой вкладки. Одежда на нём не изменится. Лимит: 15 МБ и 24 мегапикселя.</p><label for="photo" class="photo-help">Фото с устройства<input id="photo" type="file" accept="image/jpeg,image/png,image/webp"></label><div class="photo-preview" id="preview" hidden><img id="previewImage" alt="Локально выбранное фото"><p id="photoInfo"></p><button class="btn" id="clearPhoto">Удалить фото</button></div><p id="photoStatus" class="live" role="status"></p></div>
+</section>
+<section class="panel" aria-labelledby="resultsTitle">
+<div class="panel-head"><h2 id="resultsTitle">Возможности браузера</h2><span class="status" id="state">Ещё не проверено</span></div>
+<div id="rows"></div>
+<div class="actions"><button class="btn" id="copy" disabled>Скопировать отчёт</button><button class="btn" id="download" disabled>Скачать JSON</button></div>
+<p class="note">Результат не содержит фото, его имени, постоянного ID устройства и оценки «готовности к ИИ». Отправка отчёта — только вручную.</p>
+</section>
+</div>
+<p id="message" class="live" role="status" aria-live="polite"></p>
+<section class="below">
+<div><h2>Что проверяет эта страница</h2><ol><li>Безопасный контекст HTTPS и доступ к WebGPU.</li><li>Маленькое вычисление на GPU с проверкой ответа — не просто наличие кнопки или API.</li><li>Выполнение простой WebAssembly-функции, WebGL и декодирование тестового изображения.</li></ol></div>
+<div><h2>Что будет нужно для самой примерки</h2><p>Совместимые мобильные веса, полный pipeline переноса одежды и реальный тест на обоих телефонах. Готового браузерного движка в этом файле нет.</p><details><summary>Как передать результат</summary><p>После проверки нажми «Скопировать отчёт» и вставь текст в чат. Либо скачай JSON и приложи его. Проверь оба телефона отдельно.</p></details><details><summary>Посмотреть отчёт без копирования</summary><pre class="report" id="report">Запусти проверку.</pre></details></div>
+</section>
+</main>
+<footer class="foot"><span>FitMirror Probe 0.1 / Не выполняет виртуальную примерку</span><span>Никаких фотографий на сервер</span></footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const specs=[
+ ['context','01','Безопасный контекст','Проверим HTTPS или локальное доверенное окружение.'],
+ ['webgpu','02','WebGPU / вычисление','Проверим адаптер и выполним небольшую задачу.'],
+ ['wasm','03','WebAssembly','Выполним реальную тестовую функцию.'],
+ ['webgl','04','WebGL','Проверим создание графического контекста.'],
+ ['image','05','Декодирование изображения','Проверим Canvas и чтение PNG в памяти.'],
+ ['storage','06','Кеш браузера','Проверим доступность API, не свободную память GPU.'],
+];
+let report=null,busy=false,photoUrl=null,photoInfo=null,photoSequence=0;
+function makeRows(){
+ const root=$('rows');root.replaceChildren();
+ for(const [id,number,name,description] of specs){
+  const row=document.createElement('div');row.className='check';row.id='row-'+id;
+  const badge=document.createElement('div');badge.className='check-icon';badge.textContent=number;
+  const body=document.createElement('div');
+  const title=document.createElement('h3');title.textContent=name;
+  const p=document.createElement('p');p.id='description-'+id;p.textContent=description;
+  const value=document.createElement('div');value.id='value-'+id;value.className='value';
+  body.append(title,p,value);row.append(badge,body);root.append(row);
+ }
+}
+function rowStatus(key,state,description,value=''){
+ const row=$('row-'+key);row.className='check '+state;
+ $('description-'+key).textContent=description;$('value-'+key).textContent=value;
+}
+function serialize(){return report?JSON.stringify(report,null,2):'Проверка ещё не запускалась.';}
+function updateReport(){
+ if(!report)return;
+ report.photoTest=photoInfo?{...photoInfo}:null;
+ $('report').textContent=serialize();
+}
+function timeout(promise,ms,label){
+ let timer;
+ return Promise.race([promise,new Promise((_,reject)=>timer=setTimeout(()=>reject(new Error(label)),ms))]).finally(()=>clearTimeout(timer));
+}
+async function gpuTest(){
+ if(!navigator.gpu)return {state:'warn',code:'api_unavailable',description:'WebGPU недоступен в этом браузере. Это не доказывает отсутствие GPU в телефоне.'};
+ let device=null;
+ try{
+  const adapter=await timeout(navigator.gpu.requestAdapter({powerPreference:'low-power'}),12000,'Браузер не ответил на запрос адаптера');
+  if(!adapter)return {state:'warn',code:'no_adapter',description:'Браузер не предоставил WebGPU-адаптер.'};
+  const pending=adapter.requestDevice();
+  let abandoned=false;
+  pending.then(d=>{if(abandoned)d.destroy();}).catch(()=>{});
+  try{device=await timeout(pending,12000,'Не удалось получить WebGPU-устройство вовремя');}catch(e){abandoned=true;throw e;}
+  device.pushErrorScope('validation');
+  const count=65536,size=count*4;
+  const input=device.createBuffer({size,usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_DST});
+  const output=device.createBuffer({size,usage:GPUBufferUsage.STORAGE|GPUBufferUsage.COPY_SRC});
+  const readback=device.createBuffer({size,usage:GPUBufferUsage.COPY_DST|GPUBufferUsage.MAP_READ});
+  const numbers=Float32Array.from({length:count},(_,i)=>i%1024);
+  device.queue.writeBuffer(input,0,numbers);
+  const shader=device.createShaderModule({code:`
+    @group(0) @binding(0) var<storage, read> a: array<f32>;
+    @group(0) @binding(1) var<storage, read_write> b: array<f32>;
+    @compute @workgroup_size(64)
+    fn main(@builtin(global_invocation_id) p: vec3<u32>){
+      if(p.x<65536u){b[p.x]=a[p.x]*2.0+1.0;}
+    }`});
+  const started=performance.now();
+  const pipeline=await timeout(device.createComputePipelineAsync({layout:'auto',compute:{module:shader,entryPoint:'main'}}),15000,'Компиляция GPU-теста превысила лимит ожидания');
+  const group=device.createBindGroup({layout:pipeline.getBindGroupLayout(0),entries:[{binding:0,resource:{buffer:input}},{binding:1,resource:{buffer:output}}]});
+  const encoder=device.createCommandEncoder();
+  const pass=encoder.beginComputePass();pass.setPipeline(pipeline);pass.setBindGroup(0,group);pass.dispatchWorkgroups(count/64);pass.end();
+  encoder.copyBufferToBuffer(output,0,readback,0,size);device.queue.submit([encoder.finish()]);
+  await timeout(readback.mapAsync(GPUMapMode.READ),15000,'GPU-тест не вернул результат вовремя');
+  const result=new Float32Array(readback.getMappedRange());
+  let valid=true;for(let i=0;i<count;i++)if(result[i]!==numbers[i]*2+1){valid=false;break;}
+  const elapsed=Number((performance.now()-started).toFixed(1));
+  readback.unmap();input.destroy();output.destroy();readback.destroy();
+  const error=await device.popErrorScope();
+  if(error)throw new Error(error.message);
+  if(!valid)throw new Error('Ответ GPU не совпал с контрольным');
+  return {state:'pass',code:'compute_verified',description:'WebGPU-вычисление выполнено; все 65 536 ответов проверены.',fallbackAdapter:adapter.info?.isFallbackAdapter??adapter.isFallbackAdapter??null,elapsedIncludingCompilationMs:elapsed,workload:'f32: x*2+1; 65536 elements',limits:{maxBufferSize:device.limits.maxBufferSize,maxStorageBufferBindingSize:device.limits.maxStorageBufferBindingSize},note:'Лимиты API не являются свободной VRAM. Этот тест не предсказывает скорость нейросети; WebGPU может использовать программный адаптер.'};
+ }catch(e){return {state:'warn',code:'compute_failed',description:'GPU-тест не завершён: '+String(e.message).slice(0,240)};}
+ finally{device?.destroy();}
+}
+async function wasmTest(){
+ if(typeof WebAssembly==='undefined')return {state:'warn',description:'WebAssembly отсутствует.'};
+ try{
+  const bytes=new Uint8Array([0,97,115,109,1,0,0,0,1,7,1,96,2,127,127,1,127,3,2,1,0,7,7,1,3,97,100,100,0,0,10,9,1,7,0,32,0,32,1,106,11]);
+  const {instance}=await WebAssembly.instantiate(bytes);
+  if(instance.exports.add(19,23)!==42)throw new Error('Контрольный ответ не совпал');
+  return {state:'pass',description:'WebAssembly-функция выполнена: 19 + 23 = 42.',sharedArrayBuffer:typeof SharedArrayBuffer!=='undefined',crossOriginIsolated:crossOriginIsolated,note:'Успех простой функции не доказывает совместимость нейросетевых операторов.'};
+ }catch(e){return {state:'warn',description:'WebAssembly-тест не прошёл: '+e.message};}
+}
+async function webglTest(){
+ const c=document.createElement('canvas');
+ try{
+  const gl=c.getContext('webgl2')||c.getContext('webgl');
+  if(!gl)return {state:'warn',description:'Графический WebGL-контекст недоступен.'};
+  const version=gl.getParameter(gl.VERSION);gl.getExtension('WEBGL_lose_context')?.loseContext();
+  return {state:'pass',description:'Графический контекст создан.',version,note:'WebGL сам по себе не является движком virtual try-on.'};
+ }catch(e){return {state:'warn',description:'WebGL-тест не завершён: '+e.message};}
+}
+async function canvasTest(){
+ try{
+  const c=document.createElement('canvas');c.width=4;c.height=4;
+  const ctx=c.getContext('2d');if(!ctx)throw new Error('Canvas 2D недоступен');
+  ctx.fillStyle='#7a2348';ctx.fillRect(0,0,4,4);
+  const blob=await new Promise((resolve,reject)=>c.toBlob(b=>b?resolve(b):reject(new Error('PNG не создан')),'image/png'));
+  if(typeof createImageBitmap==='function'){
+   const image=await createImageBitmap(blob);const valid=image.width===4&&image.height===4;image.close();if(!valid)throw new Error('Неверный размер');
+  }else{
+   const url=URL.createObjectURL(blob);try{const img=new Image();img.src=url;await img.decode();if(img.naturalWidth!==4)throw new Error('Неверный размер');}finally{URL.revokeObjectURL(url);}
+  }
+  return {state:'pass',description:'Тестовый PNG создан и декодирован локально.',createImageBitmap:typeof createImageBitmap==='function'};
+ }catch(e){return {state:'warn',description:'Чтение изображения не подтверждено: '+e.message};}
+}
+async function storageTest(){
+ let estimate=null;
+ try{if(navigator.storage?.estimate){const e=await navigator.storage.estimate();estimate={quota:e.quota??null,usage:e.usage??null};}}catch{}
+ return {state:'info',description:'Наличие API не гарантирует сохранение больших весов; данные могут быть удалены браузером.',cacheAPI:typeof caches!=='undefined',indexedDB:typeof indexedDB!=='undefined',estimate,note:'Квота хранилища — не оперативная память и не видеопамять. Запись весов не выполнялась.'};
+}
+async function run(){
+ if(busy)return;
+ if($('device').value==='unknown'){$('message').textContent='Сначала выбери телефон или «Другое устройство».';$('device').focus();return;}
+ busy=true;$('run').disabled=true;$('copy').disabled=true;$('download').disabled=true;$('device').disabled=true;
+ makeRows();$('state').textContent='Идёт проверка';$('message').textContent='Проверяем возможности браузера. Оставь вкладку открытой.';
+ report={formatVersion:1,tool:'FitMirror Probe 0.1',createdAt:new Date().toISOString(),deviceUserSelected:$('device').value,browserUserAgent:navigator.userAgent,secureContext:isSecureContext,browserInfo:{logicalProcessors:navigator.hardwareConcurrency??null,approximateDeviceMemoryGB:navigator.deviceMemory??null},tests:{},tryOn:{implemented:false,testedOnThisPhone:false,compatibleModel:null,status:'not_implemented',note:'Этот отчёт не подтверждает возможность полноценной локальной примерки.'},photoTest:photoInfo};
+ try{
+  const testFns={
+   context:async()=>({state:isSecureContext?'pass':'warn',description:isSecureContext?'Браузер считает контекст безопасным.':'Нужен HTTPS либо доверенный локальный адрес. В file:// часть API может вести себя иначе.',secure:isSecureContext,protocol:location.protocol}),
+   webgpu:gpuTest,wasm:wasmTest,webgl:webglTest,image:canvasTest,storage:storageTest,
+  };
+  for(const [key] of specs){
+   rowStatus(key,'running','Проверяем…');
+   let result;
+   try{result=await testFns[key]();}catch(e){result={state:'warn',description:'Не завершено: '+e.message};}
+   report.tests[key]=result;
+   const extra=key==='webgpu'&&result.elapsedIncludingCompilationMs!==undefined?`${result.elapsedIncludingCompilationMs} мс, включая компиляцию / не скорость примерки${result.fallbackAdapter===true?' / программный адаптер':''}`:key==='webgl'?(result.version||''):'';
+   rowStatus(key,result.state,result.description,extra);
+   updateReport();
+  }
+  $('state').textContent='Проверка завершена';$('message').textContent='Готово. Пришли отчёт из этого телефона, затем повтори на втором. Примерка ещё не реализована.';
+ }catch(e){$('state').textContent='Проверка прервана';$('message').textContent='Не удалось закончить: '+e.message;report.error=String(e.message);}
+ finally{busy=false;$('run').disabled=false;$('device').disabled=false;$('copy').disabled=false;$('download').disabled=false;updateReport();}
+}
+async function copyReport(){
+ try{await navigator.clipboard.writeText(serialize());$('message').textContent='Отчёт скопирован. Вставь его в чат.';}
+ catch{$('report').parentElement.open=true;$('report').focus();$('message').textContent='Автокопирование недоступно. Скачай JSON или скопируй текст из раскрытого отчёта.';}
+}
+function saveReport(){
+ const blob=new Blob([serialize()],{type:'application/json'});const url=URL.createObjectURL(blob);
+ const a=document.createElement('a');a.href=url;a.download='fitmirror-'+(report.deviceUserSelected==='iPhone 14'?'iphone14':report.deviceUserSelected==='Samsung Galaxy A56'?'a56':'device')+'-report.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000);
+ $('message').textContent='JSON подготовлен. Скачанный отчёт можно приложить в чат.';
+}
+function removePhoto(){
+ photoSequence++;
+ if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl=null;photoInfo=null;
+ $('previewImage').removeAttribute('src');$('preview').hidden=true;$('photo').value='';$('photoStatus').textContent='Фото удалено из текущей вкладки.';updateReport();
+}
+async function loadPhoto(file){
+ if(!file)return;
+ const current=++photoSequence;
+ $('photoStatus').textContent='Читаем файл локально…';
+ let url=null;
+ try{
+  if(file.size===0)throw new Error('Файл пустой');
+  if(file.size>15*1024*1024)throw new Error('Файл больше 15 МБ');
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type))throw new Error('Нужен JPEG, PNG или WebP; HEIC сначала преобразуй в JPEG');
+  url=URL.createObjectURL(file);const image=new Image();image.src=url;await image.decode();
+  if(image.naturalWidth*image.naturalHeight>24000000)throw new Error('Больше 24 мегапикселей. Уменьши разрешение.');
+  if(current!==photoSequence){URL.revokeObjectURL(url);return;}
+  if(photoUrl)URL.revokeObjectURL(photoUrl);photoUrl=url;url=null;
+  photoInfo={decodeSucceeded:true,width:image.naturalWidth,height:image.naturalHeight,mime:file.type,fileSizeBytes:file.size,note:'Имя файла и пиксели в отчёт не включены; примерка не выполнялась.'};
+  $('previewImage').src=photoUrl;$('photoInfo').textContent=`${image.naturalWidth} × ${image.naturalHeight} / прочитано локально`;$('preview').hidden=false;$('photoStatus').textContent='Фото декодировано. Оно не отправлялось и не обрабатывалось моделью одежды.';updateReport();
+ }catch(e){if(current===photoSequence)$('photoStatus').textContent=e.name==='EncodingError'?'Не удалось прочитать изображение. Возможно, файл повреждён.':e.message;}
+ finally{if(url)URL.revokeObjectURL(url);}
+}
+$('run').onclick=run;$('copy').onclick=copyReport;$('download').onclick=saveReport;
+$('photo').onchange=e=>loadPhoto(e.target.files[0]);$('clearPhoto').onclick=removePhoto;
+window.addEventListener('pagehide',()=>{if(photoUrl)URL.revokeObjectURL(photoUrl);});
+makeRows();
+</script>
+</body>
+</html>
